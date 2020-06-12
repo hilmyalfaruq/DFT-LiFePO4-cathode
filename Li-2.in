@@ -1,0 +1,57 @@
+&CONTROL
+calculation = 'vc-relax'
+forc_conv_thr = 0.00038
+nstep = 200
+outdir = './output/'
+prefix = 'VLAB'
+pseudo_dir = './'
+restart_mode = 'from_scratch'
+verbosity = 'high'
+wf_collect = .TRUE.
+/
+
+&SYSTEM
+degauss = 0.002
+ecutrho = 180
+ecutwfc = 30
+ibrav = 0
+nat = 2
+ntyp = 1
+occupations = 'smearing'
+/
+
+&ELECTRONS
+conv_thr = 1e-06
+electron_maxstep = 200
+mixing_beta = 0.5
+mixing_mode = 'plain'
+scf_must_converge = .TRUE.
+startingwfc = 'random'
+/
+
+&IONS
+ion_dynamics = 'bfgs'
+upscale = 100
+/
+
+&CELL
+cell_dofree = 'all'
+cell_dynamics = 'bfgs'
+cell_factor = 2
+press_conv_thr = 0.2
+/
+
+ATOMIC_SPECIES
+Li 6.941 li_pbe_v1.4.uspp.F.UPF
+
+K_POINTS {automatic}
+9 9 9 0 0 0
+
+CELL_PARAMETERS {angstrom}
+3.4268171900 0.0000000000 0.0000000000
+0.0000000000 3.4268171900 0.0000000000
+0.0000000000 0.0000000000 3.4268171900
+
+ATOMIC_POSITIONS {angstrom}
+Li 0 0 0
+Li 1.713408595 1.713408595 1.713408595
